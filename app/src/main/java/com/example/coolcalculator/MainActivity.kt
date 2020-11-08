@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private var operand: Double = 0.0
     private var operation: String = ""
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             val text = resultTextView.text.toString()
             if (text.isNotEmpty()) {
                 resultTextView.text = text.dropLast(1)
+            } else if (text.isEmpty()) {
+                resultTextView.text = operand.toString()
             }
         }
     }
@@ -49,8 +52,7 @@ class MainActivity : AppCompatActivity() {
            if (result == ".") {
                result = ""
            }
-
-
+           
 
            resultTextView.text = result + number
 
