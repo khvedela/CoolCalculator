@@ -90,8 +90,8 @@ class MainActivity : AppCompatActivity() {
         when (operation) {
             "+" -> resultTextView.text = (operand + sec0perand).toString().removeSuffix(".0")
             "-" -> resultTextView.text = (operand - sec0perand).toString().removeSuffix(".0")
-            "*" -> resultTextView.text = (operand * sec0perand).toString().removeSuffix(".0")
-            "/" -> resultTextView.text = (operand / sec0perand).toString().removeSuffix(".0")
+            "x" -> resultTextView.text = (operand * sec0perand).toString().removeSuffix(".0")
+            "÷" -> resultTextView.text = (operand / sec0perand).toString().removeSuffix(".0")
         }
 
     }
