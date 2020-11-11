@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var resultTextView: TextView
@@ -20,7 +21,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         resultTextView = findViewById(R.id.resultTextView)
+
 
 
         findViewById<TextView>(R.id.clearButton).setOnClickListener{
@@ -74,19 +77,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun equalsClick(view: View) {
-        val sec0perandText: String = resultTextView.text.toString()
+        val sec0perandText: String = resultTextView.text.toString().removeSuffix(".0")
         var sec0perand: Double = 0.0
+
 
         if (!TextUtils.isEmpty(sec0perandText)) {
             sec0perand = sec0perandText.toDouble()
-
         }
 
+
+
         when (operation) {
-            "+" -> resultTextView.text = (operand + sec0perand).toString()
-            "-" -> resultTextView.text = (operand - sec0perand).toString()
-            "*" -> resultTextView.text = (operand * sec0perand).toString()
-            "/" -> resultTextView.text = (operand / sec0perand).toString()
+            "+" -> resultTextView.text = (operand + sec0perand).toString().removeSuffix(".0")
+            "-" -> resultTextView.text = (operand - sec0perand).toString().removeSuffix(".0")
+            "*" -> resultTextView.text = (operand * sec0perand).toString().removeSuffix(".0")
+            "/" -> resultTextView.text = (operand / sec0perand).toString().removeSuffix(".0")
         }
 
     }
