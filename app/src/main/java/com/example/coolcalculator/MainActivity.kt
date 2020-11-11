@@ -33,11 +33,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         deleteClick.setOnClickListener() {
-            val text = resultTextView.text.toString()
+            val text = resultTextView.text.toString().removeSuffix(".0")
             if (text.isNotEmpty()) {
-                resultTextView.text = text.dropLast(1)
+                resultTextView.text = text.dropLast(1).removeSuffix(".0")
             } else if (text.isEmpty()) {
-                resultTextView.text = operand.toString()
+                resultTextView.text = operand.toString().removeSuffix(".0")
             }
         }
     }
